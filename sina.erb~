@@ -11,6 +11,11 @@
     <li>go to sleep</li>
     <li>wake up</li>
     <li>have a good day</li>
+<form action ="/form" method="post">
+      <input type="text" name = "new list">
+      <inpuy type = "subit"
+</form>
+
     </ul>
 
   </body>
