@@ -1,7 +1,8 @@
 require 'rubygems'
-require 'sinatra'
-#require 'bundler/setup'
+#require 'sinatra'
+require 'bundler/setup'
 require 'json'
+Bundler.require
 
 file = File.read('hw_list.txt')
 
@@ -14,19 +15,19 @@ task, date = line.split("-")
   puts" #{task}: #{date}"
 end
 
-get '/form' do
+get '/' do
 file = File.read('hw_list.txt')
 @lines = file.split("\n")
 erb :sina
 end
 
-post '/form' do
+post '/' do
   
      File.open("hw_list.txt", "a") do |file|
      file.puts "#{params[:task]} - #{params[:date]}"
      
 end
-redirect '/form'
+redirect '/'
 end
 
 

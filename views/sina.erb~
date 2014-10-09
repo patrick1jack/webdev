@@ -1,7 +1,20 @@
-<li> hoi </li>
-<form action ="/form" method="post">
+
+
+<% @lines.each do |line| %>
+<%task, date = line.split("-")%>
+<p>
+<li>
+	<%= task%>
+	<%= date%>
+</li>
+</p>
+
+ 
+<%end%>
+<form action ='/form' method='post'>
       <strong>New Task:</strong>
-      <input type="text" name ="message">
-      <input type = "submit">
+      <input type='text' name ='task' placeholder= 'task content'/>
+      <input type='text' name='date' placeholder ='due date'/>
+      <input type = 'submit' value='Save'>
 </form>
-   
+<p>
