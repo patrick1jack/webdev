@@ -1,2 +1,2 @@
-require './hw_sin'
+require './app'
 run Sinatra::Application
