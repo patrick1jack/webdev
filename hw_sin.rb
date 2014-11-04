@@ -3,7 +3,12 @@ require 'sinatra'
 require 'bundler/setup'
 require 'json'
 Bundler.require
-
+require './models/TodoItem'
+ActiveRecord::Base.establish_connection(
+	:adapter => 'sqlite3',
+	:database => 'db/development.db',
+	:encoding => 'utf8'
+)
 file = File.read('hw_list.txt')
 
 lines = file.split("\n")
@@ -16,17 +21,13 @@ task, date = line.split("-")
 end
 
 get '/' do
-file = File.read('hw_list.txt')
-@lines = file.split("\n")
+@all_items = TodoItem.all
 erb :sina
 end
 
 post '/' do
-  
-     File.open("hw_list.txt", "a") do |file|
-     file.puts "#{params[:task]} - #{params[:date]}"
      
-end
+     TodoItem.create(description: params[:task], due: params[:date]) 
 redirect '/'
 end
 

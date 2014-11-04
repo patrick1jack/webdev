@@ -1,12 +1,12 @@
 <h2>My Todo List</h2>
 <body>
 
-<% @lines.each do |line| %>
-<%task, date = line.split("-")%>
+<% @all_items.order(:due).each do |item| %>
+
 <p>
 <li>
-<%=task%> -
-<%=date%>
+<%=item.description%> -
+<%=item.due%>
 </li>
 </p>
 
