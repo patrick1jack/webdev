@@ -9,16 +9,7 @@ ActiveRecord::Base.establish_connection(
 	:database => 'db/development.db',
 	:encoding => 'utf8'
 )
-file = File.read('hw_list.txt')
 
-lines = file.split("\n")
-
-
-lines.each do |line|
-task, date = line.split("-")
-
-  puts" #{task}: #{date}"
-end
 
 get '/' do
 @all_items = TodoItem.all
