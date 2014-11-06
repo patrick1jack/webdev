@@ -23,12 +23,11 @@ end
 post '/' do
      
      TodoItem.create(description: params[:task], due: params[:date])
-     task_data = params[:task]
-     date_data = params[:date]
+redirect '/'
 end
-delete '/' do 
-       TodoItem.find(task_data).destroy
-       TodoItem.find(date_data).destroy 
+delete '/:id' do 
+       TodoItem.find(params[:id]).destroy
+    
 redirect '/'
 end
 

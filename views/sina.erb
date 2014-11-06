@@ -7,8 +7,8 @@
 <li>
 <%=item.description%> -
 <%=item.due%>
-<form action ='/' method='delete'>
-      <value='Delete'>
+<form action ='/<%= @post.id =\%>' method='delete'>
+      <input type='hidden' value='Delete'>
 </form>
 </li>
 </p>
@@ -20,6 +20,7 @@
   <input type='text' name ='task' placeholder= 'task content'/>
   <input type='text' name='date' placeholder ='due date'/>
   <input type = 'submit' value='Save'>
+  
 </form>
 <p>
 
