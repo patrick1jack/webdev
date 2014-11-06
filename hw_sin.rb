@@ -25,7 +25,6 @@ post '/' do
      TodoItem.create(description: params[:task], due: params[:date])
      task_data = params[:task]
      date_data = params[:date]
-redirect '/'
 end
 delete '/' do 
        TodoItem.find(task_data).destroy
