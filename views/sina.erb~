@@ -7,10 +7,6 @@
 <li>
 <%=item.description%> -
 <%=item.due%>
-<form action ='/' method='delete'>
-      <strong>New Task:</strong>
-      <input type='delete' value='Delete'>
-</form>
 </li>
 </p>
 
