@@ -7,7 +7,7 @@
 <li>
 <%=item.description%> -
 <%=item.due%>
-<form action ='/<%= @post.id =\%>' method='delete'>
+<form action ='<%=item.id%>' method='delete'>
       <input type='hidden' value='Delete'>
 </form>
 </li>
