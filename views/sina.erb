@@ -1,14 +1,14 @@
 <h2><%=@user.name%>'s Todo List</h2>
-
+<p>
+  <a href="/">back</a>
+</p>
 
 <% @all_items.order(:due).each do |item| %>
 
 <ul>
 	<li>
-	<div class = 'list-group-item">
-	     <a href='/<%=item.description%>'><%=item.due%></a>	
-	</div>
-	<form action =/delete_item/<%=item.id%>' method='post'>
+	<%=item.description%> - <%=item.due%>
+	<form action ='/delete_item/<%=item.id%>' method='get'>
       	<input type='submit' value='Delete'>
       	</form>
 	</li>

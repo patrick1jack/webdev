@@ -18,12 +18,12 @@ end
 
 get '/' do 
     @users = User.all.order(:name)
-    erb :user_list
+    erb :user_views
 end
 
 get '/:user' do
-    @user = UserId.find(parms[:user])
-    @all_items = @user.TodoItem.order(:due)
+    @user = User.find(params[:user])
+    @all_items = @user.todo_items.order(:due)
     erb :sina
 end
 
@@ -38,17 +38,22 @@ post '/delete_user/:id' do
 end
 
 post '/:user/new_item' do
-     User.find(params[:user]).todoitems.create(description: params[:task], due: params[:date])
-     redirect '/#{params[:user]}'
+     User.find(params[:user]).todo_items.create(description: params[:task], due: params[:date])
+     redirect "/#{params[:user]}"
 end
 
-post '/delete_item/:id' do 
-       @todo_item = TodoItem.find(params[:id])
+get '/delete_item/:item' do 
+       @todo_item = TodoItem.find(params[:item])
        @user = @todo_item.user
        @todo_item.destroy   
-       redirect '/#{@user.id}'
+       redirect "/#{@user.id}"
 end
 
 
 
+helpers do
 
+  def blank?(x)
+    x.nil? || x == ""
+  end
+end

@@ -1,4 +1,0 @@
-class AddUserTodolist < ActiveRecord::Migration
-  def change
-  end
-end
